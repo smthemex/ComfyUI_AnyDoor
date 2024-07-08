@@ -74,8 +74,19 @@ or
 |             ├── epoch=1-step=8687.ckpt  (origin)
 |             ├── epoch=1-step=8687-pruned.ckpt  (pruned)
 ```
+4 Using
+---
 
-4 Example
+4.1 Image and image_mask are the objects you want to transfer, while bg_image and bg_mask are the background of the image, which is the main image;   
+4.2 Seed is currently invalid;   
+Although the built-in mask of comfyUI can also be used, I still recommend using Seg or Sam;   
+4.4 If there is not enough graphics memory, you can consider enabling save_memory;    
+4.5 useInteractive_seg will process the mask again, unless you are a hand animation mask, it is generally not recommended to open it;   
+4.6 The maximum model training size is 768 * 768, so it is not recommended to use oversized images for image training;    
+4.7 The workflow file is located in the examples folder;   
+
+
+5 Example
 ---
 change cloth using SAM...   
 ![](https://github.com/smthemex/ComfyUI_AnyDoor/blob/main/examples/example.png)
