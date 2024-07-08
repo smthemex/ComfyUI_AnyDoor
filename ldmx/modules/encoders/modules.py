@@ -5,7 +5,7 @@ from torch.utils.checkpoint import checkpoint
 from transformers import T5Tokenizer, T5EncoderModel, CLIPTokenizer, CLIPTextModel
 import torchvision.transforms as T
 import open_clip
-from ldm.util import default, count_params
+from ...util import default, count_params
 from PIL import Image
 from open_clip.transform import image_transform
 import sys
