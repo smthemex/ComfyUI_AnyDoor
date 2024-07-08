@@ -84,6 +84,7 @@ Although the built-in mask of comfyUI can also be used, I still recommend using 
 4.5 useInteractive_seg will process the mask again, unless you are a hand animation mask, it is generally not recommended to open it;   
 4.6 The maximum model training size is 768 * 768, so it is not recommended to use oversized images for image training;    
 4.7 The workflow file is located in the examples folder;   
+4.8 When inputting the mask image, please make sure that the selection you want to replace is black.    
 
 
 5 Example
