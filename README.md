@@ -5,7 +5,8 @@ AnyDoor origin From: [AnyDoor](https://github.com/ali-vilab/AnyDoor)
 ----
 
 Tips：  
-At present, there is no good adaptation node for the injection of object mask positions, so we will add one later.    
+At present, there is no good adaptation node for the injection of object mask positions, so we will add one later.     
+If you have pre downloaded the model, you don't need to install the  modelscope library   
 
 英文阅读慢的，请看[中文说明](https://github.com/smthemex/ComfyUI_AnyDoor/blob/main/README-CN.md)
 
@@ -71,8 +72,8 @@ or
 --The file storage address is as follows:  
 
 ```
-├── ComfyUI/custom_nodes/ComfyUI_AnyDoor/
-|      ├──weights/
+├── ComfyUI/models/
+|      ├──anydoor/
 |             ├── dinov2_vitg14_pretrain.pth
 |             ├── epoch=1-step=8687.ckpt  (origin)
 |             ├── epoch=1-step=8687-pruned.ckpt  (pruned)
