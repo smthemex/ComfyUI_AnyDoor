@@ -10,6 +10,7 @@ from PIL import Image
 from open_clip.transform import image_transform
 import sys
 import os
+import folder_paths
 
 
 class LayerNormFp32(nn.LayerNorm):
@@ -274,16 +275,13 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 path1=os.path.dirname(current_path)
 path2=os.path.dirname(path1)
 path3=os.path.dirname(path2)
-path4=os.path.dirname(path3)
-print(path3)
-sys.path.append("custom_nodes/ComfyUI_AnyDoor/dinov2")
-#sys.path.insert(0,path3)
+sys.path.insert(0, f"{path3}/dinov2")
 import hubconf
-#from .dinov2.hubconf import *
 from omegaconf import OmegaConf
 config_path = f'{path3}/configs/anydoor.yaml'
 config = OmegaConf.load(config_path)
-DINOv2_weight_path = config.model.params.cond_stage_config.weight
+DINOv2_weight_path=os.path.join(folder_paths.models_dir,"anydoor","dinov2_vitg14_pretrain.pth")
+# DINOv2_weight_path = config.model.params.cond_stage_config.weight
 
 class FrozenDinoV2Encoder(AbstractEncoder):
     """
