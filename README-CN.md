@@ -4,6 +4,10 @@
 AnyDoor的官方地址: [AnyDoor](https://github.com/ali-vilab/AnyDoor)   
 ----
 
+Tips：    
+目前物体遮罩位置的注入没有好的适配节点，迟点新增一个。   
+----
+
 我的comfyUI插件目录：  
 -----
 1、ParlerTTS node（TTS项目）:[ComfyUI_ParlerTTS](https://github.com/smthemex/ComfyUI_ParlerTTS)     

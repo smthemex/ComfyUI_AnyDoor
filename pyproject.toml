@@ -1,0 +1,15 @@
+[project]
+name = "comfyui_anydoor"
+description = "you can using anydoor ,change clothes,object"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["modelscope", "huggingface_hub"]
+
+[project.urls]
+Repository = "https://github.com/smthemex/ComfyUI_AnyDoor"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "smthemx"
+DisplayName = "ComfyUI_AnyDoor"
+Icon = ""

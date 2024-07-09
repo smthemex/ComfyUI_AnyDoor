@@ -4,6 +4,9 @@ You can using  AnyDoor in comfyUI，you can change the clothes of the characters
 AnyDoor origin From: [AnyDoor](https://github.com/ali-vilab/AnyDoor) 
 ----
 
+Tips：  
+At present, there is no good adaptation node for the injection of object mask positions, so we will add one later.    
+
 英文阅读慢的，请看[中文说明](https://github.com/smthemex/ComfyUI_AnyDoor/blob/main/README-CN.md)
 
 My ComfyUI node list：
