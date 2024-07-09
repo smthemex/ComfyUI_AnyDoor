@@ -274,10 +274,10 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 path1=os.path.dirname(current_path)
 path2=os.path.dirname(path1)
 path3=os.path.dirname(path2)
-path4=os.path.dirname(path3)
-print(path3)
-sys.path.append("custom_nodes/ComfyUI_AnyDoor/dinov2")
-#sys.path.insert(0,path3)
+#path4=os.path.dirname(path3)
+#print(path3)
+#sys.path.append("custom_nodes/ComfyUI_AnyDoor/dinov2")
+sys.path.insert(0, f"{path3}/dinov2")
 import hubconf
 #from .dinov2.hubconf import *
 from omegaconf import OmegaConf
