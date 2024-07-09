@@ -7,7 +7,6 @@ import einops
 import numpy as np
 import torch
 import random
-from huggingface_hub import hf_hub_download
 from pytorch_lightning import seed_everything
 from .ldmx.model import create_model, load_state_dict
 from .ldmx.ddim_hacked import DDIMSampler
@@ -22,9 +21,19 @@ import folder_paths
 from modelscope.hub.file_download import model_file_download
 
 
-node_current_path = os.path.dirname(os.path.abspath(__file__))
-node_init_path = os.path.dirname(node_current_path )
-comfy_dir_path = os.path.dirname(node_init_path)
+anydoor_current_path = os.path.dirname(os.path.abspath(__file__))
+weigths_current_path = os.path.join(folder_paths.models_dir, "anydoor")
+
+if not os.path.exists(weigths_current_path):
+    os.makedirs(weigths_current_path)
+    
+    
+if "anydoor" not in folder_paths.folder_names_and_paths:
+    node_current_paths = [os.path.join(folder_paths.models_dir, "anydoor")]
+else:
+    node_current_paths, _ = folder_paths.folder_names_and_paths["anydoor"]
+    print(node_current_paths)
+folder_paths.folder_names_and_paths["anydoor"] = (node_current_paths, folder_paths.supported_pt_extensions)
 
 
 # Tensor to PIL  NCHW 2 CV
@@ -314,41 +323,36 @@ class AnyDoor_LoadModel:
     CATEGORY = "AnyDoor"
 
     def main_loader(self,save_memory,ckpts):
-
         disable_verbosity()
         if save_memory:
             enable_sliced_attention()
             
         # download model
-        model_config = os.path.join(node_current_path, "configs", "anydoor.yaml")
-        weights_dir = os.path.join(node_current_path, "weights")
-        
-        dino_model_path = os.path.join(node_current_path, "weights", "dinov2_vitg14_pretrain.pth")
+        model_config = os.path.join(anydoor_current_path, "configs", "anydoor.yaml")
+        dino_model_path = os.path.join(weigths_current_path, "dinov2_vitg14_pretrain.pth")
         if not os.path.exists(dino_model_path):
             model_file_download('bdsqlsz/AnyDoor-Pruned', file_path="dinov2_vitg14_pretrain.pth",
-                                local_dir=weights_dir)
-        
-        if ckpts=="pruned":
-            model_ckpt = os.path.join(node_current_path, "weights", "epoch=1-step=8687-pruned.ckpt")
+                                local_dir=weigths_current_path)
+        if ckpts == "pruned":
+            model_ckpt = os.path.join(weigths_current_path, "epoch=1-step=8687-pruned.ckpt")
             if not os.path.exists(model_ckpt):
-                model_ckpt = model_file_download('bdsqlsz/AnyDoor-Pruned', file_path="epoch=1-step=8687-pruned.ckpt",local_dir=weights_dir)
+                model_ckpt = model_file_download('bdsqlsz/AnyDoor-Pruned',
+                                                 file_path="epoch=1-step=8687-pruned.ckpt",
+                                                 local_dir=weigths_current_path)
         else:
-            model_ckpt = os.path.join(node_current_path, "weights", "epoch=1-step=8687.ckpt")
+            model_ckpt = os.path.join(weigths_current_path, "epoch=1-step=8687.ckpt")
             if not os.path.exists(model_ckpt):
-                model_ckpt = hf_hub_download(
-                    repo_id="xichenhku/AnyDoor",
-                    filename="epoch=1-step=8687.ckpt",
-                    repo_type="spaces",
-                    local_dir=weights_dir,
-                )
+                model_ckpt = model_file_download('iic/AnyDoor', file_path="epoch=1-step=8687.ckpt",
+                                                 local_dir=weigths_current_path)
         model = create_model(model_config).cpu()
         model.load_state_dict(load_state_dict(model_ckpt, location='cuda'))
         model = model.cuda()
         ddim_sampler = DDIMSampler(model)
         if save_memory:
-            info="true"
+            info = "true"
         else:
-            info="false"
+            info = "false"
+
         return (model,ddim_sampler,info)
 
 class AnyDoor_img2img:
