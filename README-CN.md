@@ -5,7 +5,8 @@ AnyDoor的官方地址: [AnyDoor](https://github.com/ali-vilab/AnyDoor)
 ----
 
 Tips：    
-目前物体遮罩位置的注入没有好的适配节点，迟点新增一个。   
+目前物体遮罩位置的注入没有好的适配节点，迟点新增一个。 
+因为魔搭的需求很低，会间接影响其他库，所以最好是直接下载模型文件。
 ----
 
 我的comfyUI插件目录：  
@@ -69,8 +70,8 @@ or
 --模型文件的存放目录构成如下:  
 
 ```
-├── ComfyUI/custom_nodes/ComfyUI_AnyDoor/
-|      ├──weights/
+├── ComfyUI/models/
+|      ├──anydoor/
 |             ├── dinov2_vitg14_pretrain.pth
 |             ├── epoch=1-step=8687.ckpt  (选择origin时)
 |             ├── epoch=1-step=8687-pruned.ckpt  (选择pruned时))
