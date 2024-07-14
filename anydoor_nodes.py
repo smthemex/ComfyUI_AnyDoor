@@ -400,7 +400,7 @@ class AnyDoor_img2img:
         
         if use_interactive_seg:
             from .iseg.coarse_mask_refine_util import BaselineModel
-            model_path = os.path.join(node_current_path, "iseg","coarse_mask_refine.pth")
+            model_path = os.path.join(anydoor_current_path, "iseg","coarse_mask_refine.pth")
             iseg_model = BaselineModel().eval()
             weights = torch.load(model_path, map_location='cpu')['state_dict']
             iseg_model.load_state_dict(weights, strict=True)
