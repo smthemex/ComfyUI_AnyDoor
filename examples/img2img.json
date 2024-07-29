@@ -1,0 +1,485 @@
+{
+  "last_node_id": 80,
+  "last_link_id": 206,
+  "nodes": [
+    {
+      "id": 80,
+      "type": "PreviewImage",
+      "pos": [
+        1011,
+        113
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 206,
+          "label": "images"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 76,
+      "type": "MaskToImage",
+      "pos": [
+        990,
+        27
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 195,
+          "label": "mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            199
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      }
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        486,
+        405
+      ],
+      "size": {
+        "0": 406.5561218261719,
+        "1": 546.2044677734375
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            203
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            204
+          ],
+          "shape": 3,
+          "label": "MASK",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-538000.5.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": [
+        512,
+        -28
+      ],
+      "size": {
+        "0": 344.6199951171875,
+        "1": 382.4700012207031
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            200,
+            206
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            195
+          ],
+          "shape": 3,
+          "label": "MASK",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-324495.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [
+        1307,
+        456
+      ],
+      "size": {
+        "0": 616.1058959960938,
+        "1": 498.85443115234375
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 187,
+          "label": "images"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 73,
+      "type": "AnyDoor_img2img",
+      "pos": [
+        1462,
+        -30
+      ],
+      "size": {
+        "0": 315,
+        "1": 398
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ref_image",
+          "type": "IMAGE",
+          "link": 200,
+          "label": "ref_image"
+        },
+        {
+          "name": "ref_mask",
+          "type": "IMAGE",
+          "link": 199,
+          "label": "ref_mask"
+        },
+        {
+          "name": "tar_image",
+          "type": "IMAGE",
+          "link": 203,
+          "label": "tar_image"
+        },
+        {
+          "name": "tar_mask",
+          "type": "IMAGE",
+          "link": 205,
+          "label": "tar_mask",
+          "slot_index": 3
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 184,
+          "label": "model"
+        },
+        {
+          "name": "ddim_sampler",
+          "type": "MODEL",
+          "link": 185,
+          "label": "ddim_sampler"
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "link": 186,
+          "widget": {
+            "name": "info"
+          },
+          "slot_index": 6,
+          "label": "info"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            187
+          ],
+          "shape": 3,
+          "label": "image",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnyDoor_img2img"
+      },
+      "widgets_values": [
+        "",
+        10,
+        547897929879096,
+        "randomize",
+        30,
+        1,
+        512,
+        512,
+        1,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 1,
+      "type": "AnyDoor_LoadModel",
+      "pos": [
+        924,
+        738
+      ],
+      "size": {
+        "0": 315,
+        "1": 122
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            184
+          ],
+          "shape": 3,
+          "label": "model",
+          "slot_index": 0
+        },
+        {
+          "name": "ddim_sampler",
+          "type": "MODEL",
+          "links": [
+            185
+          ],
+          "shape": 3,
+          "label": "ddim_sampler",
+          "slot_index": 1
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": [
+            186
+          ],
+          "shape": 3,
+          "label": "info",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AnyDoor_LoadModel"
+      },
+      "widgets_values": [
+        false,
+        "pruned"
+      ]
+    },
+    {
+      "id": 79,
+      "type": "MaskToImage",
+      "pos": [
+        1012,
+        427
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 204,
+          "label": "mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            205
+          ],
+          "shape": 3,
+          "label": "IMAGE",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      }
+    }
+  ],
+  "links": [
+    [
+      184,
+      1,
+      0,
+      73,
+      4,
+      "MODEL"
+    ],
+    [
+      185,
+      1,
+      1,
+      73,
+      5,
+      "MODEL"
+    ],
+    [
+      186,
+      1,
+      2,
+      73,
+      6,
+      "STRING"
+    ],
+    [
+      187,
+      73,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      195,
+      10,
+      1,
+      76,
+      0,
+      "MASK"
+    ],
+    [
+      199,
+      76,
+      0,
+      73,
+      1,
+      "IMAGE"
+    ],
+    [
+      200,
+      10,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      203,
+      5,
+      0,
+      73,
+      2,
+      "IMAGE"
+    ],
+    [
+      204,
+      5,
+      1,
+      79,
+      0,
+      "MASK"
+    ],
+    [
+      205,
+      79,
+      0,
+      73,
+      3,
+      "IMAGE"
+    ],
+    [
+      206,
+      10,
+      0,
+      80,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Group",
+      "bounding": [
+        334,
+        -70,
+        1595,
+        1029
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8390545288824428,
+      "offset": {
+        "0": 374.26858131790203,
+        "1": 290.6748139021084
+      }
+    }
+  },
+  "version": 0.4
+}
