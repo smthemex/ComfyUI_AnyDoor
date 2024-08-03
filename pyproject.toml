@@ -2,7 +2,7 @@
 name = "comfyui_anydoor"
 description = "you can using anydoor ,change clothes,object"
 version = "1.0.0"
-license = "LICENSE"
+license = { file = "LICENSE" }
 dependencies = ["modelscope", "huggingface_hub"]
 
 [project.urls]
